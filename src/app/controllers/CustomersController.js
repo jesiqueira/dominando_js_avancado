@@ -1,3 +1,5 @@
+import Customer from '../models/Customer'
+
 const customers = [
     { id: 1, name: 'Dev Samurai', site: 'http://devsamurai.com.br' },
     { id: 2, name: 'Google', site: 'http://google.com' },
@@ -6,8 +8,16 @@ const customers = [
 
 class CustomersController {
     // Listagem dos customer
-    index(req, res) {
-        return res.json(customers)
+    async index(req, res) {
+        try {
+            const data = await Customer.findAll({
+                limit: 1000,
+            })
+            return res.json(data)
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json({ error: 'Internal Server Error' })
+        }
     }
 
     // recupera um customer
