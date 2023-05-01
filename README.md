@@ -1,4 +1,5 @@
 # Projeto domindo node avançado
+Esse projeto é para estudo e aprendizado de nodejs avançado, curso realiado na empresa [Dev Samurai](https://class.devsamurai.com.br/auth/login)
 
 ## eslint config para settings.json
 
